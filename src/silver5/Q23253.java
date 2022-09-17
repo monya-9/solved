@@ -1,6 +1,5 @@
 package silver5;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 
