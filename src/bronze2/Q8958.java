@@ -1,41 +1,45 @@
 package bronze2;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Q8958 {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int size = sc.nextInt();
-		String[] qeRes = new String[size];
-		int score = 0;
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int size = Integer.parseInt(br.readLine());
 		int cnt = 0;
+		int sum = 0;
 
 		for (int i = 0; i < size; i++) {
-			qeRes[i] = sc.next().toUpperCase();
-			for (int j = 0; j < size; j++) {
-				qeRes[j] = qeRes[i];
-				if (qeRes[i].equals("O")) {
+			String[] OX = br.readLine().split("");
+			for (int j = 0; j < OX.length; j++) {
+				if (OX[j].equals("O")) {
 					cnt++;
-					score += cnt;
+					if (OX[j] != OX[0] && OX[j].equals("O") && OX[j - 1].equals("O")) {
+						sum++;
+						cnt += sum;
+					}
 				} else {
-					cnt = 0;
+					sum = 0;
 				}
 			}
-			System.out.println(score);
+			System.out.println(cnt);
+			cnt = 0;
+			sum = 0;
 		}
 	}
 }
 
-//¹®Á¦
-//"OOXXOXXOOO"¿Í °°Àº OXÄûÁîÀÇ °á°ú°¡ ÀÖ´Ù. O´Â ¹®Á¦¸¦ ¸ÂÀº °ÍÀÌ°í, X´Â ¹®Á¦¸¦ Æ²¸° °ÍÀÌ´Ù. ¹®Á¦¸¦ ¸ÂÀº °æ¿ì ±× ¹®Á¦ÀÇ Á¡¼ö´Â ±× ¹®Á¦±îÁö ¿¬¼ÓµÈ OÀÇ °³¼ö°¡ µÈ´Ù. ¿¹¸¦ µé¾î, 10¹ø ¹®Á¦ÀÇ Á¡¼ö´Â 3ÀÌ µÈ´Ù.
+//ë¬¸ì œ
+//"OOXXOXXOOO"ì™€ ê°™ì€ OXí€´ì¦ˆì˜ ê²°ê³¼ê°€ ìžˆë‹¤. OëŠ” ë¬¸ì œë¥¼ ë§žì€ ê²ƒì´ê³ , XëŠ” ë¬¸ì œë¥¼ í‹€ë¦° ê²ƒì´ë‹¤. ë¬¸ì œë¥¼ ë§žì€ ê²½ìš° ê·¸ ë¬¸ì œì˜ ì ìˆ˜ëŠ” ê·¸ ë¬¸ì œê¹Œì§€ ì—°ì†ëœ Oì˜ ê°œìˆ˜ê°€ ëœë‹¤. ì˜ˆë¥¼ ë“¤ì–´, 10ë²ˆ ë¬¸ì œì˜ ì ìˆ˜ëŠ” 3ì´ ëœë‹¤.
 //
-//"OOXXOXXOOO"ÀÇ Á¡¼ö´Â 1+2+0+0+1+0+0+1+2+3 = 10Á¡ÀÌ´Ù.
+//"OOXXOXXOOO"ì˜ ì ìˆ˜ëŠ” 1+2+0+0+1+0+0+1+2+3 = 10ì ì´ë‹¤.
 //
-//OXÄûÁîÀÇ °á°ú°¡ ÁÖ¾îÁ³À» ¶§, Á¡¼ö¸¦ ±¸ÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
+//OXí€´ì¦ˆì˜ ê²°ê³¼ê°€ ì£¼ì–´ì¡Œì„ ë•Œ, ì ìˆ˜ë¥¼ êµ¬í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ìž‘ì„±í•˜ì‹œì˜¤.
 //
-//ÀÔ·Â
-//Ã¹Â° ÁÙ¿¡ Å×½ºÆ® ÄÉÀÌ½ºÀÇ °³¼ö°¡ ÁÖ¾îÁø´Ù. °¢ Å×½ºÆ® ÄÉÀÌ½º´Â ÇÑ ÁÙ·Î ÀÌ·ç¾îÁ® ÀÖ°í, ±æÀÌ°¡ 0º¸´Ù Å©°í 80º¸´Ù ÀÛÀº ¹®ÀÚ¿­ÀÌ ÁÖ¾îÁø´Ù. ¹®ÀÚ¿­Àº O¿Í X¸¸À¸·Î ÀÌ·ç¾îÁ® ÀÖ´Ù.
+//ìž…ë ¥
+//ì²«ì§¸ ì¤„ì— í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ì˜ ê°œìˆ˜ê°€ ì£¼ì–´ì§„ë‹¤. ê° í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ëŠ” í•œ ì¤„ë¡œ ì´ë£¨ì–´ì ¸ ìžˆê³ , ê¸¸ì´ê°€ 0ë³´ë‹¤ í¬ê³  80ë³´ë‹¤ ìž‘ì€ ë¬¸ìžì—´ì´ ì£¼ì–´ì§„ë‹¤. ë¬¸ìžì—´ì€ Oì™€ Xë§Œìœ¼ë¡œ ì´ë£¨ì–´ì ¸ ìžˆë‹¤.
 //
-//Ãâ·Â
-//°¢ Å×½ºÆ® ÄÉÀÌ½º¸¶´Ù Á¡¼ö¸¦ Ãâ·ÂÇÑ´Ù.
+//ì¶œë ¥
+//ê° í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ë§ˆë‹¤ ì ìˆ˜ë¥¼ ì¶œë ¥í•œë‹¤.
