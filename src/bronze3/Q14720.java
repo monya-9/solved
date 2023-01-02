@@ -19,7 +19,7 @@ public class Q14720 {
 			} else if(milk[i] == 1 && next == 1) {
 				cnt++;
 				next = 2;
-			}else if(milk[i] == 2 && next == 2) {
+			} else if(milk[i] == 2 && next == 2) {
 				cnt++;
 				next = 0;
 			}
