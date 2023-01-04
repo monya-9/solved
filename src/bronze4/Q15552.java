@@ -18,7 +18,7 @@ public class Q15552 {
 			st = new StringTokenizer(br.readLine());
 			int a = Integer.parseInt(st.nextToken());
 			int b = Integer.parseInt(st.nextToken());
-			bw.write(a+b + "\n");	//버퍼 int출력시 + " "를 해줘야 문자열출력?
+			bw.write(a+b + "\n");	//버퍼 int출력시 + " "를 해줘야 문자열로 출력
 		}
 		bw.flush();
 	}
