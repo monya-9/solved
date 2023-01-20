@@ -9,13 +9,9 @@ public class Q2292 {
 		int layer = 1;
 		int min = 2;
 
-		if (num == 1) {
-			System.out.println(1);
-		} else {
-			while (min <= num) {
-				min += (6*layer);
-				layer++;
-			}
+		while (min <= num) {
+			min += (6 * layer);
+			layer++;
 		}
 		System.out.println(layer);
 	}
