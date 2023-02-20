@@ -6,7 +6,7 @@ public class Q2748 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		long[] arr = new long[n + 1];
+		long[] arr = new long[n-1];
 		
 		arr[0] = 0;
 		if(n > 0) {
