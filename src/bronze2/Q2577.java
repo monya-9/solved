@@ -8,14 +8,17 @@ public class Q2577 {
 		int A = sc.nextInt();
 		int B = sc.nextInt();
 		int C = sc.nextInt();
-		
-		int mul = A*B*C;
-		
-		String[] strMul = Integer.toString(mul).split("");
-		
-		for (int i = 0; i < strMul.length; i++) {
-			
-			System.out.println(strMul[i]);
+
+		int[] num = new int[10];
+
+		int mul = A * B * C;
+
+		while (mul > 0) {
+			num[mul % 10]++;
+			mul /= 10;
+		}
+		for (int i = 0; i < 10; i++) {
+			System.out.println(num[i]);
 		}
 	}
 }
