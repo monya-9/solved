@@ -13,26 +13,24 @@ public class Q7568 { // 브루트포스 알고리즘
 
 		StringTokenizer st = null;
 
-		int[][] xy = new int[num][2];
+		int xy[][] = new int[num][2];
+		int arr[] = new int[num];
 
 		for (int i = 0; i < num; i++) {
 			st = new StringTokenizer(br.readLine());
 			xy[i][0] = Integer.parseInt(st.nextToken());
 			xy[i][1] = Integer.parseInt(st.nextToken());
-		}
-
-		Arrays.sort(xy, (arr1, arr2) -> {
-			if (arr1[1] == arr2[1]) {
-				return arr1[0] - arr2[0];
-			} else {
-				return arr1[1] - arr2[1];
+		}		
+		
+		for (int i = 0; i < num; i++) {
+			arr[i] = 1;
+			for (int j = 0; j < num; j++) {
+				if(xy[i][0] < xy[j][0] && xy[i][1] < xy[j][1]) {
+					arr[i]++;
+				}
+				
 			}
-		});
-
-		int cnt = 0;
-		for (int i = 0; i < xy.length; i++) {
-			cnt++;
-			System.out.print(cnt);
+			System.out.print(arr[i] + " ");
 		}
 	}
 }
