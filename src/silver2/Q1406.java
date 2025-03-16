@@ -35,6 +35,7 @@ public class Q1406 {
 		while(!leftStack.isEmpty()) {
 			sb.append(leftStack.pop());
 		}
+		sb.reverse();
 		
 		while(!rightStack.isEmpty()) {
 			sb.append(rightStack.pop());
